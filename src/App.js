@@ -4,11 +4,13 @@ import classes from "./App.module.css";
 import Wave from "./components/UI/Wave/Wave";
 import React, { useEffect, useState } from "react";
 import MovieList from "./components/MovieList/MovieList";
+import MainPage from "./components/MainPage/MainPage";
 
 const App = () => {
   const [movieSearch, setMovieSearch] = useState("");
   const [movies, setMovies] = useState([]);
-
+  const [watchlist, setWatchlist] = useState([]);
+  console.log(watchlist);
   const searchMovie = async (movieSearch) => {
     const url = `http://www.omdbapi.com/?s=${movieSearch}&apikey=630ce116`;
     const request = await fetch(url);
@@ -18,6 +20,11 @@ const App = () => {
     }
   };
 
+  const handleAddWathlist = (movie) => {
+    const list = [...watchlist, movie];
+    setWatchlist(list);
+  };
+
   useEffect(() => {
     searchMovie(movieSearch);
   }, [movieSearch]);
@@ -25,11 +32,16 @@ const App = () => {
   return (
     <>
       <header>
-        <Header onSetMovieSearch={setMovieSearch} />
+        <Header
+          watchlist={watchlist}
+          movieSearch={movieSearch}
+          onSetMovieSearch={setMovieSearch}
+        />
         <Wave />
       </header>
       <main>
-        <MovieList movieList={movies} />
+        {movies.length > 0 || <MainPage />}
+        <MovieList onSetWatchlist={handleAddWathlist} movieList={movies} />
       </main>
     </>
   );
