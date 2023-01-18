@@ -13,13 +13,9 @@
 .logo {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-size: 2rem;
   font-family: Barlow;
-}
-.logo > h3 {
-  position: relative;
-  bottom: 0.7px;
 }
 .logo_span {
   color: #3b8d99;
@@ -38,16 +34,31 @@
   background: transparent;
   color: #fff;
   letter-spacing: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nav_btn > a {
   text-decoration: none;
   color: #fff;
 }
-.nav_btn:hover > a,
+/*.nav_btn:hover > a,
 .nav_btn:hover {
   color: #aa4b6b;
   transition: all 0.2s ease;
+}*/
+.watchlist_badge {
+  width: 40px;
+  background-color: #3b8d99;
+  padding: 0.5rem;
+  display: flex;
+  margin: 0 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
 }
+
 .search {
   display: flex;
   justify-content: center;

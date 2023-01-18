@@ -4,8 +4,10 @@ import search from "../assets/search.svg";
 import Watchlist from "../Watchlist/Watchlist";
 
 const Header = (props) => {
-  const { onSetMovieSearch, watchlist } = props;
+  const { onSetMovieSearch, onSetDisplayWatchlist, watchlist } = props;
+
   const handleChange = (e) => onSetMovieSearch(e.target.value);
+
   return (
     <nav className={classes.navbar}>
       <section className={classes.logo}>
@@ -26,7 +28,13 @@ const Header = (props) => {
         <button className={classes.nav_btn}>
           <a href="index.html">home</a>
         </button>
-        <button className={classes.nav_btn}>watchlist</button>
+        <button
+          onClick={() => onSetDisplayWatchlist(true)}
+          className={classes.nav_btn}
+        >
+          <span className={classes.watchlist_badge}>{watchlist.length}</span>
+          watchlist
+        </button>
       </ul>
     </nav>
   );

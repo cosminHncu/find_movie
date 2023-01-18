@@ -1,28 +1,21 @@
 .showcase {
-  width: 100%;
+  width: 65%;
   height: 100%;
   display: flex;
   justify-content: center;
   gap: 2rem;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 20rem;
+  padding: 2rem 5rem;
   position: relative;
+  margin: 2rem;
 }
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   width: 100%;
-}
-
-.dude {
-  position: fixed;
-  z-index: -10;
-  top: 12rem;
-  left: 50rem;
-  animation: slide-down 0.7s ease-out forwards;
+  flex-direction: column;
 }
 .movie_card {
   cursor: pointer;
@@ -36,14 +29,13 @@
   width: 180px;
   height: 250px;
   border-radius: 15px;
-  box-shadow: 0px 10px 5px #333;
+  box-shadow: 0px 5px 15px #333;
 }
 .overlay {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
   border-radius: 15px;
   position: absolute;
   width: 100%;
@@ -59,13 +51,28 @@
 .movie_card:hover .overlay {
   opacity: 1;
 }
+.overview_btn {
+  position: relative;
+  top: 5rem;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 100%;
+  background: transparent;
+}
+.overview_btn:hover {
+  color: #438795;
+  transition: 0.2s ease;
+}
 .watchlist_btn {
   cursor: pointer;
   border: none;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
   background: transparent;
+  font-weight: 100;
 }
 .watchlist_btn:hover {
   color: #aa4b6b;

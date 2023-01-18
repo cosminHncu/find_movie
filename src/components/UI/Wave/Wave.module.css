@@ -1,10 +1,11 @@
 .wave {
   position: relative;
   top: 3.7rem;
-  left: 0;
+
   width: 100%;
   overflow: hidden;
   line-height: 0;
+
   /*position: fixed;*/
 }
 
