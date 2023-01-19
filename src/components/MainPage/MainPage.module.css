@@ -11,8 +11,8 @@
 }
 .friends {
   width: 550px;
-  height: 550px;
-  animation: slide-down 0.7s ease-out forwards;
+  height: 500px;
+  animation: slide-down 0.5s ease-out forwards;
 }
 .card {
   display: flex;

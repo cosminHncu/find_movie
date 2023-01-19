@@ -1,10 +1,7 @@
 import classes from "./MovieList.module.css";
-import React, { useState } from "react";
-
-import Watchlist from "../Watchlist/Watchlist";
 
 const MovieList = (props) => {
-  const { onSetWatchlist, movieList, displayWatchlist, watchlist } = props;
+  const { onSetWatchlist, movieList } = props;
 
   const filterdList = movieList.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
@@ -29,12 +26,7 @@ const MovieList = (props) => {
     </div>
   );
 
-  return (
-    <main className={classes.wrapper}>
-      {displayWatchlist || resultMovies}
-      {displayWatchlist && <Watchlist watchlist={watchlist} />}
-    </main>
-  );
+  return <main className={classes.wrapper}>{resultMovies}</main>;
 };
 
 export default MovieList;

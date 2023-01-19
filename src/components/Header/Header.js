@@ -1,7 +1,6 @@
 import classes from "./Header.module.css";
 import logo from "../assets/logo.svg";
 import search from "../assets/search.svg";
-import Watchlist from "../Watchlist/Watchlist";
 
 const Header = (props) => {
   const { onSetMovieSearch, onSetDisplayWatchlist, watchlist } = props;

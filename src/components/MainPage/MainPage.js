@@ -1,7 +1,7 @@
 import classes from "./MainPage.module.css";
 import friends from "../assets/new.svg";
 
-const MainPage = (props) => {
+const MainPage = () => {
   const main = (
     <main className={classes.main}>
       <section className={classes.card}>
