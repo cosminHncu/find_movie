@@ -5,7 +5,11 @@ import search from "../assets/search.svg";
 const Header = (props) => {
   const { onSetMovieSearch, onSetDisplayWatchlist, watchlist } = props;
 
-  const handleChange = (e) => onSetMovieSearch(e.target.value);
+  const handleChange = (e) => {
+    onSetMovieSearch(e.target.value);
+  };
+
+  const handleEnter = (e) => e.preventDefault();
 
   return (
     <nav className={classes.navbar}>
@@ -15,7 +19,11 @@ const Header = (props) => {
           <span className={classes.logo_span}>find</span>Movie
         </h3>
       </section>
-      <form onChange={handleChange} className={classes.search}>
+      <form
+        onSubmit={handleEnter}
+        onChange={handleChange}
+        className={classes.search}
+      >
         <img src={search} alt="search icon" />
         <input
           className={classes.search_box}

@@ -1,3 +1,4 @@
+import { computeHeadingLevel } from "@testing-library/react";
 import classes from "./MovieList.module.css";
 
 const MovieList = (props) => {
@@ -5,6 +6,12 @@ const MovieList = (props) => {
 
   const filterdList = movieList.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
+  );
+
+  const noMovies = (
+    <div className={classes.movies_empty}>
+      <p>No Movies Found</p>
+    </div>
   );
 
   const resultMovies = (
@@ -16,7 +23,10 @@ const MovieList = (props) => {
             <button className={classes.overview_btn}>Overview</button>
             <button
               className={classes.watchlist_btn}
-              onClick={() => onSetWatchlist(movie)}
+              onClick={(event) => {
+                event.currentTarget.disabled = true;
+                onSetWatchlist(movie);
+              }}
             >
               +Watchlist
             </button>
@@ -26,7 +36,11 @@ const MovieList = (props) => {
     </div>
   );
 
-  return <main className={classes.wrapper}>{resultMovies}</main>;
+  return (
+    <main className={classes.wrapper}>
+      {filterdList.length > 0 ? resultMovies : noMovies}
+    </main>
+  );
 };
 
 export default MovieList;

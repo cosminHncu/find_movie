@@ -32,11 +32,11 @@ const App = () => {
     if (movieSearch === ``) setMovies([]);
   };
 
-  const watchlist_empty = (
-    <div>
-      <h1>Sorry, your watchlist is empty</h1>
-    </div>
-  );
+  //const watchlist_empty = (
+  //  <div>
+  //    <h1>Sorry, your watchlist is empty</h1>
+  //  </div>
+  //);
 
   useEffect(() => {
     searchMovie(movieSearch);
