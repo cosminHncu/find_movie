@@ -3,7 +3,8 @@ import logo from "../assets/logo.svg";
 import search from "../assets/search.svg";
 
 const Header = (props) => {
-  const { onSetMovieSearch, onSetDisplayWatchlist, watchlist } = props;
+  const { onSetMovieSearch, onSetDisplayWatchlist, watchlist, onHandleLogo } =
+    props;
 
   const handleChange = (e) => {
     onSetMovieSearch(e.target.value);
@@ -13,12 +14,22 @@ const Header = (props) => {
 
   return (
     <nav className={classes.navbar}>
-      <section className={classes.logo}>
-        <img src={logo} alt="logo icon" />
-        <h3>
-          <span className={classes.logo_span}>find</span>Movie
-        </h3>
-      </section>
+      <button
+        className={classes.logo_btn}
+        onClick={() => {
+          onHandleLogo();
+          onSetMovieSearch("");
+          //here
+        }}
+      >
+        {" "}
+        <section className={classes.logo}>
+          <img src={logo} alt="logo icon" />
+          <h3>
+            <span className={classes.logo_span}>find</span>Movie
+          </h3>
+        </section>
+      </button>
       <form
         onSubmit={handleEnter}
         onChange={handleChange}
@@ -32,9 +43,6 @@ const Header = (props) => {
         />
       </form>
       <ul className={classes.nav_list}>
-        <button className={classes.nav_btn}>
-          <a href="index.html">home</a>
-        </button>
         <button
           onClick={() => onSetDisplayWatchlist(true)}
           className={classes.nav_btn}

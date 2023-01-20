@@ -12,8 +12,10 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [displayWatchlist, setDisplayWatchlist] = useState(false);
+  const [movieTitleSearch, setMovieTitleSearch] = useState();
 
   //lol
+
   const searchMovie = async (movieSearch) => {
     const url = `http://www.omdbapi.com/?s=${movieSearch}&apikey=630ce116`;
     const request = await fetch(url);
@@ -23,6 +25,15 @@ const App = () => {
     }
   };
 
+  const searchTitle = async (Title) => {
+    const url = `http://www.omdbapi.com/?t=${Title}&apikey=630ce116`;
+    const request = await fetch(url);
+    const response = await request.json();
+    setMovieTitleSearch(response);
+  };
+
+  const handleLogo = () => setMovies([]);
+
   const handleAddWathlist = (movie) => {
     const list = [...watchlist, movie];
     setWatchlist(list);
@@ -31,12 +42,6 @@ const App = () => {
   const cleaner = () => {
     if (movieSearch === ``) setMovies([]);
   };
-
-  //const watchlist_empty = (
-  //  <div>
-  //    <h1>Sorry, your watchlist is empty</h1>
-  //  </div>
-  //);
 
   useEffect(() => {
     searchMovie(movieSearch);
@@ -48,10 +53,11 @@ const App = () => {
     <>
       <header>
         <Header
-          onSetDisplayWatchlist={setDisplayWatchlist}
           movieSearch={movieSearch}
-          onSetMovieSearch={setMovieSearch}
           watchlist={watchlist}
+          onSetMovieSearch={setMovieSearch}
+          onSetDisplayWatchlist={setDisplayWatchlist}
+          onHandleLogo={handleLogo}
         />
         <Wave />
       </header>
@@ -64,6 +70,8 @@ const App = () => {
               watchlist={watchlist}
               displayWatchlist={displayWatchlist}
               movieList={movies}
+              movieTitleSearch={movieTitleSearch}
+              onSearchTitle={searchTitle}
               onSetWatchlist={handleAddWathlist}
             />
           ))}

@@ -1,20 +1,14 @@
 import classes from "./Watchlist.module.css";
-import React, { useState } from "react";
+import WatchlistMovie from "./WatchlistMovie";
 const Watchlist = (props) => {
   const { watchlist } = props;
-  console.log(watchlist);
 
   const list = (
     <ul className={classes.list}>
-      {watchlist.map((movie) => (
-        <li className={classes.movie_card} key={movie.imdbID}>
-          <div className={classes.movie}>
-            <img className={classes.poster} src={movie.Poster} />
-            <h2>{movie.Title}</h2>
-          </div>
-          <button className={classes.watchlist_btn}>Watched</button>
-        </li>
-      ))}
+      {watchlist.map((movie) => {
+        const { imdbID } = movie;
+        return <WatchlistMovie movie={movie} key={imdbID} />;
+      })}
     </ul>
   );
 
