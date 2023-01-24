@@ -3,10 +3,18 @@ import React, { useState, useEffect } from "react";
 import done from "../assets/viewed.svg";
 const WatchlistMovie = (props) => {
   const [viewed, setViewd] = useState(false);
-  const { Poster, Title } = props.movie;
+  const { onHandleViewd } = props;
+
+  const { Poster, Title, imdbID } = props.movie;
 
   const viewdBtn = (
-    <button onClick={() => setViewd(true)} className={classes.watchlist_btn}>
+    <button
+      onClick={() => {
+        setViewd(true);
+        setTimeout(() => onHandleViewd(imdbID), 1200);
+      }}
+      className={classes.watchlist_btn}
+    >
       Watched
     </button>
   );

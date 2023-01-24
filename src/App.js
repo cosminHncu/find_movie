@@ -2,7 +2,7 @@
 import Header from "./components/Header/Header";
 //import classes from "./App.module.css";
 import Wave from "./components/UI/Wave/Wave";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MovieList from "./components/MovieList/MovieList";
 import MainPage from "./components/MainPage/MainPage";
 import Watchlist from "./components/Watchlist/Watchlist";
@@ -12,12 +12,10 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [displayWatchlist, setDisplayWatchlist] = useState(false);
-  const [movieTitleSearch, setMovieTitleSearch] = useState();
-
-  //lol
+  //const [movieTitleSearch, setMovieTitleSearch] = useState(null);
 
   const searchMovie = async (movieSearch) => {
-    const url = `http://www.omdbapi.com/?s=${movieSearch}&apikey=630ce116`;
+    const url = `https://www.omdbapi.com/?s=${movieSearch}&apikey=630ce116`;
     const request = await fetch(url);
     const response = await request.json();
     if (response.Search) {
@@ -25,28 +23,27 @@ const App = () => {
     }
   };
 
-  const searchTitle = async (Title) => {
-    const url = `http://www.omdbapi.com/?t=${Title}&apikey=630ce116`;
-    const request = await fetch(url);
-    const response = await request.json();
-    setMovieTitleSearch(response);
+  const handleLogo = () => {
+    //reset
+    setMovies([]);
+    setDisplayWatchlist(false);
   };
 
-  const handleLogo = () => setMovies([]);
-
   const handleAddWathlist = (movie) => {
+    //add to watchlist
     const list = [...watchlist, movie];
     setWatchlist(list);
   };
 
-  const cleaner = () => {
-    if (movieSearch === ``) setMovies([]);
+  const handleViewd = (imdbID) => {
+    //update the watchlist when a movie is viewd
+    const list = watchlist.filter((movie) => movie.imdbID !== imdbID);
+    setWatchlist(list);
   };
 
   useEffect(() => {
     searchMovie(movieSearch);
     setDisplayWatchlist(false);
-    cleaner();
   }, [movieSearch]);
 
   return (
@@ -67,15 +64,20 @@ const App = () => {
             <MainPage />
           ) : (
             <MovieList
+              onSetMovies={setMovies}
               watchlist={watchlist}
               displayWatchlist={displayWatchlist}
               movieList={movies}
-              movieTitleSearch={movieTitleSearch}
-              onSearchTitle={searchTitle}
               onSetWatchlist={handleAddWathlist}
             />
           ))}
-        {displayWatchlist && <Watchlist watchlist={watchlist} />}
+        {displayWatchlist && (
+          <Watchlist
+            onHandleViewd={handleViewd}
+            setWatchlist={setWatchlist}
+            watchlist={watchlist}
+          />
+        )}
       </main>
     </>
   );

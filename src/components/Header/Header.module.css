@@ -20,6 +20,10 @@
 .logo_span {
   color: #3b8d99;
 }
+.logo_svg:hover {
+  transform: rotate(360deg);
+  transition: all 0.5s ease;
+}
 .logo_btn {
   background: transparent;
   border: none;
@@ -33,13 +37,12 @@
   gap: 2rem;
 }
 .nav_btn {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   border: none;
   padding: 0.7rem 1.2rem;
   cursor: pointer;
   background: transparent;
   color: #fff;
-  letter-spacing: 0.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,21 +51,25 @@
   text-decoration: none;
   color: #fff;
 }
-/*.nav_btn:hover > a,
-.nav_btn:hover {
-  color: #aa4b6b;
-  transition: all 0.2s ease;
-}*/
+
 .watchlist_badge {
-  width: 40px;
+  width: 35px;
+  height: 35px;
   background-color: #3b8d99;
   padding: 0.5rem;
   display: flex;
-  margin: 0 0.5rem;
+  margin: 0 0.3rem;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   text-align: center;
+}
+.watchlist_lable {
+  letter-spacing: 0.1rem;
+}
+.watchlist_lable:hover {
+  color: #a5a4aa;
+  transition: 0.2s ease;
 }
 
 .search {

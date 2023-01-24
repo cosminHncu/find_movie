@@ -20,6 +20,9 @@
   border-radius: 15px;
   box-shadow: 0px 5px 15px #333;
 }
+.poster:hover {
+  box-shadow: none;
+}
 .overlay {
   display: flex;
   justify-content: space-between;
@@ -74,5 +77,46 @@
 /* */
 
 .movie_overview {
-  border: 2px solid red;
+  z-index: 1000;
+  background: #282636;
+  color: #fff;
+  width: 300px;
+  border-radius: 15px;
+  height: 400px;
+  animation: slide-down 0.3s forwards;
+}
+.title {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.sub_heading {
+  text-align: left;
+  padding: 0.5rem 1rem;
+}
+.runtime {
+  padding: 0 1rem;
+}
+.genre {
+  padding: 1rem;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

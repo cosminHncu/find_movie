@@ -1,14 +1,21 @@
 import classes from "./MovieOverview.module.css";
 import React, { useState } from "react";
-import Modal from "../UI/Modal/Modal";
 
-//"http://www.omdbapi.com/?s=star+wars&apikey=630ce116"
 const MovieOverview = (props) => {
   const { Title, Poster } = props.movie;
+  //const [overviewStatus, setOverviewStatus] = useState(false);
   const [displayMovieData, setDisplayMovieData] = useState(false);
-  const { onSetWatchlist, movieList, onSearchTitle, movieTitleSearch } = props;
+  const [movieTitleSearch, setMovieTitleSearch] = useState(null);
+
+  const searchTitle = async (Title) => {
+    const url = `https://www.omdbapi.com/?t=${Title}&apikey=630ce116`;
+    const request = await fetch(url);
+    const response = await request.json();
+    setMovieTitleSearch(response);
+  };
+
   console.log(movieTitleSearch);
-  console.log(displayMovieData);
+  const { onSetWatchlist } = props;
 
   const movieCard = (
     <div className={classes.movie_card}>
@@ -16,8 +23,8 @@ const MovieOverview = (props) => {
       <div className={classes.overlay}>
         <button
           onClick={() => {
-            onSearchTitle(Title);
             setDisplayMovieData(true);
+            searchTitle(Title);
           }}
           className={classes.overview_btn}
         >
@@ -36,13 +43,30 @@ const MovieOverview = (props) => {
     </div>
   );
 
-  const movieOverview = (
+  const movieOverview = movieTitleSearch ? (
     <div className={classes.movie_overview}>
-      <img className={classes.poster} src={Poster} />
+      <div className={classes.heading}></div>
+      <h1 className={classes.title}>{Title}</h1>
+      <div></div>
+      <h3
+        className={classes.sub_heading}
+      >{`${movieTitleSearch.Year}, ${movieTitleSearch.Director}`}</h3>
+      <h4 className={classes.genre}>
+        <span className={classes.runtime}>{movieTitleSearch.Runtime}</span>
+        {movieTitleSearch.Genre}
+      </h4>
+      <p className={classes.plot}>{movieTitleSearch.Plot}</p>
+
+      <button onClick={() => setDisplayMovieData(false)}>Close</button>
     </div>
+  ) : (
+    <div>Something went wrong, please try again!</div>
   );
 
-  return <>{displayMovieData ? <Modal>{movieOverview}</Modal> : movieCard}</>;
+  return <>{displayMovieData ? movieOverview : movieCard}</>;
 };
 
 export default MovieOverview;
+
+//maybe
+/*<img className={classes.poster} src={Poster} />*/

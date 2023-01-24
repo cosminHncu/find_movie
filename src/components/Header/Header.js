@@ -12,6 +12,8 @@ const Header = (props) => {
 
   const handleEnter = (e) => e.preventDefault();
 
+  const watchlist_lable = <p className={classes.watchlist_lable}>watchlist</p>;
+
   return (
     <nav className={classes.navbar}>
       <button
@@ -22,9 +24,8 @@ const Header = (props) => {
           //here
         }}
       >
-        {" "}
         <section className={classes.logo}>
-          <img src={logo} alt="logo icon" />
+          <img className={classes.logo_svg} src={logo} alt="logo icon" />
           <h3>
             <span className={classes.logo_span}>find</span>Movie
           </h3>
@@ -42,15 +43,15 @@ const Header = (props) => {
           placeholder="Type to search"
         />
       </form>
-      <ul className={classes.nav_list}>
+      <div className={classes.nav_list}>
         <button
           onClick={() => onSetDisplayWatchlist(true)}
           className={classes.nav_btn}
         >
           <span className={classes.watchlist_badge}>{watchlist.length}</span>
-          watchlist
+          {watchlist_lable}
         </button>
-      </ul>
+      </div>
     </nav>
   );
 };

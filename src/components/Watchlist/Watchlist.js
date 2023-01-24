@@ -1,13 +1,21 @@
 import classes from "./Watchlist.module.css";
 import WatchlistMovie from "./WatchlistMovie";
+
 const Watchlist = (props) => {
-  const { watchlist } = props;
+  const { watchlist, onHandleViewd } = props;
 
   const list = (
     <ul className={classes.list}>
       {watchlist.map((movie) => {
         const { imdbID } = movie;
-        return <WatchlistMovie movie={movie} key={imdbID} />;
+        return (
+          <WatchlistMovie
+            onHandleViewd={onHandleViewd}
+            watchlist={watchlist}
+            movie={movie}
+            key={imdbID}
+          />
+        );
       })}
     </ul>
   );
