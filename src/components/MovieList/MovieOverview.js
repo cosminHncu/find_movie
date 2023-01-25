@@ -1,5 +1,6 @@
 import classes from "./MovieOverview.module.css";
 import React, { useState } from "react";
+import loading from "../assets/loading.svg";
 
 const MovieOverview = (props) => {
   const { Title, Poster } = props.movie;
@@ -53,28 +54,17 @@ const MovieOverview = (props) => {
 
       <p className={classes.plot}>{movieTitleSearch.Plot}</p>
 
-      <div className={classes.control_mobile}>
-        <button
-          className={classes.close_overview_btn}
-          onClick={() => setDisplayMovieData(false)}
-        >
-          X
-        </button>
-        <div className={classes.watchlist_btn_mobile}>
-          <button
-            className={classes.watchlist_btn}
-            onClick={(event) => {
-              event.currentTarget.disabled = true;
-              onSetWatchlist(props.movie);
-            }}
-          >
-            +Watchlist
-          </button>
-        </div>
-      </div>
+      <button
+        className={classes.close_overview_btn}
+        onClick={() => setDisplayMovieData(false)}
+      >
+        X
+      </button>
     </div>
   ) : (
-    <div>Something went wrong, please try again!</div>
+    <div>
+      <img className={classes.rotating} src={loading} alt="loading " />
+    </div>
   );
 
   return <>{displayMovieData ? movieOverview : movieCard}</>;

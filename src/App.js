@@ -30,7 +30,8 @@ const App = () => {
 
   const handleAddWathlist = (movie) => {
     //add to watchlist
-    const list = [...watchlist, movie];
+    const list = [movie, ...watchlist];
+    localStorage.setItem(`${movie.imdbID}`, [movie.Poster, movie.Title]);
     setWatchlist(list);
   };
 

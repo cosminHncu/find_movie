@@ -2,15 +2,14 @@ import classes from "./WatchlistMovie.module.css";
 import React, { useState, useEffect } from "react";
 import done from "../assets/viewed.svg";
 const WatchlistMovie = (props) => {
-  const [viewed, setViewd] = useState(false);
-  const { onHandleViewd } = props;
-
+  const [viewedMovie, setViewedMovie] = useState(false);
+  const { onHandleViewd, movie } = props;
   const { Poster, Title, imdbID } = props.movie;
 
   const viewdBtn = (
     <button
       onClick={() => {
-        setViewd(true);
+        setViewedMovie(true);
         setTimeout(() => onHandleViewd(imdbID), 1200);
       }}
       className={classes.watchlist_btn}
@@ -25,7 +24,7 @@ const WatchlistMovie = (props) => {
         <img className={classes.poster} src={Poster} />
         <h2>{Title}</h2>
       </div>
-      {viewed ? (
+      {viewedMovie ? (
         <img className={classes.done} src={done} alt="viewd" />
       ) : (
         viewdBtn

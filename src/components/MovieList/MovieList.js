@@ -10,7 +10,6 @@ const MovieList = (props) => {
   let filterdList = movieList.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
   );
-  console.log(filterdList);
 
   //const handleMovieList = () => {
   //  let list = [];
