@@ -103,6 +103,7 @@ select:focus {
     height: 160px;
     flex-direction: column;
     position: relative;
+    padding: 0 1.5rem;
   }
   .nav_control {
     height: 50px;
