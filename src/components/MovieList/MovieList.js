@@ -1,29 +1,32 @@
 import MovieOverview from "./MovieOverview";
 import classes from "./MovieList.module.css";
 
-//import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const MovieList = (props) => {
   const { onSetWatchlist, movieList, watchlist, onSetMovies } = props;
-  const filterdList = movieList.filter(
+  const [displayMoveieList, setDisplayMovieList] = useState(false);
+
+  let filterdList = movieList.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
   );
+  console.log(filterdList);
+
+  //const handleMovieList = () => {
+  //  let list = [];
+  //  watchlist.map((w) =>
+  //    filterdList.map((m) => {
+  //      return w.imdbID !== m.imdbID ? list.push(m) : "";
+  //    })
+  //  );
+  //  onSetMovies(list);
+  //};
 
   const noMovies = (
     <div className={classes.movies_empty}>
       <p>No Movies Found</p>
     </div>
   );
-  //to do
-  //useEffect(() => {
-  //  onSetMovies(
-  //    filterdList.map((m1) =>
-  //      watchlist.map((m2) => {
-  //        if (m1.imdbID !== m2.imdbID) return m1;
-  //      })
-  //    )
-  //  );
-  //}, [filterdList]);
 
   const resultMovies = (
     <div className={classes.showcase}>

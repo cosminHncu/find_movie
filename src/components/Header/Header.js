@@ -31,26 +31,28 @@ const Header = (props) => {
           </h3>
         </section>
       </button>
-      <form
-        onSubmit={handleEnter}
-        onChange={handleChange}
-        className={classes.search}
-      >
-        <img src={search} alt="search icon" />
-        <input
-          className={classes.search_box}
-          value={props.searchSearch}
-          placeholder="Type to search"
-        />
-      </form>
-      <div className={classes.nav_list}>
-        <button
-          onClick={() => onSetDisplayWatchlist(true)}
-          className={classes.nav_btn}
+      <div className={classes.nav_control}>
+        <form
+          onSubmit={handleEnter}
+          onChange={handleChange}
+          className={classes.search}
         >
-          <span className={classes.watchlist_badge}>{watchlist.length}</span>
-          {watchlist_lable}
-        </button>
+          <img className={classes.search_svg} src={search} alt="search icon" />
+          <input
+            className={classes.search_box}
+            value={props.searchSearch}
+            placeholder="Type to search"
+          />
+        </form>
+        <div className={classes.watchlist}>
+          <button
+            onClick={() => onSetDisplayWatchlist(true)}
+            className={classes.watchlist_btn}
+          >
+            <span className={classes.watchlist_badge}>{watchlist.length}</span>
+            {watchlist_lable}
+          </button>
+        </div>
       </div>
     </nav>
   );

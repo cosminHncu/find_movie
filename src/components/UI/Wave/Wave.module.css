@@ -19,3 +19,9 @@
 .wave .shape_fill {
   fill: #282636;
 }
+
+@media (max-width: 767px) {
+  .wave {
+    display: none;
+  }
+}

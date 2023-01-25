@@ -12,8 +12,7 @@ const MainPage = () => {
         <p className={classes.heading_sub_txt}>
           Find and explore your next favorite movie <br />
           Discover a comprehensive movie search website where you can easily
-          find and read about your favorite films, including ratings, and plot
-          summaries
+          find and read about your favorite films
         </p>
       </section>
       <img className={classes.friends} src={friends} />

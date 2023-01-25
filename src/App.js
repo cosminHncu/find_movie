@@ -1,8 +1,8 @@
 //"http://www.omdbapi.com/?s=star+wars&apikey=630ce116"
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-//import classes from "./App.module.css";
+import classes from "./App.module.css";
 import Wave from "./components/UI/Wave/Wave";
-import React, { useEffect, useState, useContext } from "react";
 import MovieList from "./components/MovieList/MovieList";
 import MainPage from "./components/MainPage/MainPage";
 import Watchlist from "./components/Watchlist/Watchlist";
@@ -12,7 +12,6 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [displayWatchlist, setDisplayWatchlist] = useState(false);
-  //const [movieTitleSearch, setMovieTitleSearch] = useState(null);
 
   const searchMovie = async (movieSearch) => {
     const url = `https://www.omdbapi.com/?s=${movieSearch}&apikey=630ce116`;
@@ -41,13 +40,23 @@ const App = () => {
     setWatchlist(list);
   };
 
+  //const handleMovieList = () => {
+  //  let list = [];
+  //  watchlist.map((w) =>
+  //    movies.map((m) => {
+  //      return w.imdbID !== m.imdbID ? list.push(m) : "";
+  //    })
+  //  );
+  //  setMovies(list);
+  //};
+
   useEffect(() => {
     searchMovie(movieSearch);
     setDisplayWatchlist(false);
   }, [movieSearch]);
 
   return (
-    <>
+    <div className={classes.app}>
       <header>
         <Header
           movieSearch={movieSearch}
@@ -79,7 +88,7 @@ const App = () => {
           />
         )}
       </main>
-    </>
+    </div>
   );
 };
 

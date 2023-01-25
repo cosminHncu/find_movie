@@ -14,7 +14,6 @@ const MovieOverview = (props) => {
     setMovieTitleSearch(response);
   };
 
-  console.log(movieTitleSearch);
   const { onSetWatchlist } = props;
 
   const movieCard = (
@@ -45,19 +44,34 @@ const MovieOverview = (props) => {
 
   const movieOverview = movieTitleSearch ? (
     <div className={classes.movie_overview}>
-      <div className={classes.heading}></div>
       <h1 className={classes.title}>{Title}</h1>
-      <div></div>
-      <h3
-        className={classes.sub_heading}
-      >{`${movieTitleSearch.Year}, ${movieTitleSearch.Director}`}</h3>
-      <h4 className={classes.genre}>
+
+      <h4 className={classes.director}>
         <span className={classes.runtime}>{movieTitleSearch.Runtime}</span>
-        {movieTitleSearch.Genre}
+        {movieTitleSearch.Director}
       </h4>
+
       <p className={classes.plot}>{movieTitleSearch.Plot}</p>
 
-      <button onClick={() => setDisplayMovieData(false)}>Close</button>
+      <div className={classes.control_mobile}>
+        <button
+          className={classes.close_overview_btn}
+          onClick={() => setDisplayMovieData(false)}
+        >
+          X
+        </button>
+        <div className={classes.watchlist_btn_mobile}>
+          <button
+            className={classes.watchlist_btn}
+            onClick={(event) => {
+              event.currentTarget.disabled = true;
+              onSetWatchlist(props.movie);
+            }}
+          >
+            +Watchlist
+          </button>
+        </div>
+      </div>
     </div>
   ) : (
     <div>Something went wrong, please try again!</div>
