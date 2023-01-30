@@ -21,7 +21,6 @@ const Header = (props) => {
         onClick={() => {
           onHandleLogo();
           onSetMovieSearch("");
-          //here
         }}
       >
         <section className={classes.logo}>

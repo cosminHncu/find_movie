@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import loading from "../assets/loading.svg";
 
 const MovieOverview = (props) => {
+  const { movie } = props;
   const { Title, Poster } = props.movie;
-  //const [overviewStatus, setOverviewStatus] = useState(false);
+  //const [viewed, setViewed] = useState(props.movie.watchlistAdded);
   const [displayMovieData, setDisplayMovieData] = useState(false);
   const [movieTitleSearch, setMovieTitleSearch] = useState(null);
 
@@ -33,6 +34,7 @@ const MovieOverview = (props) => {
         <button
           className={classes.watchlist_btn}
           onClick={(event) => {
+            movie.Type = ``;
             event.currentTarget.disabled = true;
             onSetWatchlist(props.movie);
           }}

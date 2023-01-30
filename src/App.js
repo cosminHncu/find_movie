@@ -29,9 +29,8 @@ const App = () => {
   };
 
   const handleAddWathlist = (movie) => {
-    //add to watchlist
     const list = [movie, ...watchlist];
-    localStorage.setItem(`${movie.imdbID}`, [movie.Poster, movie.Title]);
+
     setWatchlist(list);
   };
 
@@ -41,24 +40,21 @@ const App = () => {
     setWatchlist(list);
   };
 
-  //const handleMovieList = () => {
-  //  let list = [];
-  //  watchlist.map((w) =>
-  //    movies.map((m) => {
-  //      return w.imdbID !== m.imdbID ? list.push(m) : "";
-  //    })
-  //  );
-  //  setMovies(list);
-  //};
-
   useEffect(() => {
+    if (movieSearch === "") setMovies([]);
     searchMovie(movieSearch);
     setDisplayWatchlist(false);
   }, [movieSearch]);
 
+  //useEffect(() => {
+  //  watchlist.map((watchlist_movie) => {
+  //    watchlist_movie.imdbID
+  //  })
+  //}, [watchlist]);
+
   return (
     <div className={classes.app}>
-      <header>
+      <section>
         <Header
           movieSearch={movieSearch}
           watchlist={watchlist}
@@ -67,25 +63,24 @@ const App = () => {
           onHandleLogo={handleLogo}
         />
         <Wave />
-      </header>
+      </section>
       <main>
         {!displayWatchlist &&
           (movies.length <= 0 ? (
             <MainPage />
           ) : (
             <MovieList
-              onSetMovies={setMovies}
-              watchlist={watchlist}
               displayWatchlist={displayWatchlist}
               movieList={movies}
+              onSetMovies={setMovies}
               onSetWatchlist={handleAddWathlist}
             />
           ))}
         {displayWatchlist && (
           <Watchlist
+            watchlist={watchlist}
             onHandleViewd={handleViewd}
             setWatchlist={setWatchlist}
-            watchlist={watchlist}
           />
         )}
       </main>
