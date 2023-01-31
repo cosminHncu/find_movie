@@ -1,6 +1,6 @@
 .showcase {
   width: 65%;
-  height: 100%;
+  min-height: 76.7vh;
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -9,7 +9,9 @@
   padding: 2rem 5rem;
   position: relative;
   margin: 2rem;
+  border-radius: 15px;
 }
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -17,6 +19,8 @@
   width: 100%;
   flex-direction: column;
   animation: slide-up 0.3s forwards;
+  z-index: 100;
+  position: relative;
 }
 
 .movies_empty {

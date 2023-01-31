@@ -5,6 +5,7 @@
   width: 100%;
   flex-direction: column;
   animation: slide-up 0.3s forwards;
+  z-index: 1000;
 }
 .movie_card {
   cursor: pointer;

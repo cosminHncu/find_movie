@@ -8,14 +8,20 @@ const MainPage = () => {
         <h1 className={classes.heading_txt}>
           Go watch <br />a Movie!
         </h1>
-
+        {/*<Typical
+          steps={["get", 1000, `fucked`, 2000]}
+          loop={Infinity}
+          wrapper="p"
+        />*/}
         <p className={classes.heading_sub_txt}>
           Find and explore your next favorite movie <br />
           Discover a comprehensive movie search website where you can easily
           find and read about your favorite films
         </p>
       </section>
-      <img className={classes.friends} src={friends} />
+      <div className={classes.friends_holder}>
+        <img className={classes.friends} src={friends} />
+      </div>
     </main>
   );
 

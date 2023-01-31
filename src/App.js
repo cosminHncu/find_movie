@@ -46,12 +46,6 @@ const App = () => {
     setDisplayWatchlist(false);
   }, [movieSearch]);
 
-  //useEffect(() => {
-  //  watchlist.map((watchlist_movie) => {
-  //    watchlist_movie.imdbID
-  //  })
-  //}, [watchlist]);
-
   return (
     <div className={classes.app}>
       <section>
@@ -70,6 +64,7 @@ const App = () => {
             <MainPage />
           ) : (
             <MovieList
+              watchlist={watchlist}
               displayWatchlist={displayWatchlist}
               movieList={movies}
               onSetMovies={setMovies}
@@ -89,3 +84,13 @@ const App = () => {
 };
 
 export default App;
+
+{
+  /*<MovieList
+              watchlist={watchlist}
+              displayWatchlist={displayWatchlist}
+              movieList={movies}
+              onSetMovies={setMovies}
+              onSetWatchlist={handleAddWathlist}
+            />*/
+}

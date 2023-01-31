@@ -1,7 +1,7 @@
 .wave {
   position: relative;
   top: 3.7rem;
-  /*z-index: 10000;*/
+  z-index: 50;
   width: 100%;
   overflow: hidden;
   line-height: 0;

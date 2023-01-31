@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import loading from "../assets/loading.svg";
 
 const MovieOverview = (props) => {
-  const { movie } = props;
+  const { onSetWatchlist } = props;
+  const { movie, watchlist } = props;
   const { Title, Poster } = props.movie;
-  //const [viewed, setViewed] = useState(props.movie.watchlistAdded);
+
   const [displayMovieData, setDisplayMovieData] = useState(false);
   const [movieTitleSearch, setMovieTitleSearch] = useState(null);
 
@@ -15,8 +16,6 @@ const MovieOverview = (props) => {
     const response = await request.json();
     setMovieTitleSearch(response);
   };
-
-  const { onSetWatchlist } = props;
 
   const movieCard = (
     <div className={classes.movie_card}>
@@ -31,16 +30,19 @@ const MovieOverview = (props) => {
         >
           Overview
         </button>
-        <button
-          className={classes.watchlist_btn}
-          onClick={(event) => {
-            movie.Type = ``;
-            event.currentTarget.disabled = true;
-            onSetWatchlist(props.movie);
-          }}
-        >
-          +Watchlist
-        </button>
+
+        {
+          <button
+            className={classes.watchlist_btn}
+            onClick={(event) => {
+              movie.Type = ``;
+              //event.currentTarget.disabled = true;
+              onSetWatchlist(props.movie);
+            }}
+          >
+            +Watchlist
+          </button>
+        }
       </div>
     </div>
   );
