@@ -23,8 +23,12 @@
   font-size: 2rem;
   font-family: Barlow;
 }
+
 .logo_span {
   color: #3b8d99;
+}
+.logo_svg {
+  height: 100%;
 }
 .logo_svg:hover {
   transform: rotate(360deg);
@@ -103,11 +107,13 @@ select:focus {
     height: 160px;
     flex-direction: column;
     position: relative;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
+    background: transparent;
   }
   .nav_control {
     height: 50px;
     gap: 0;
+    justify-content: space-between;
     width: 100%;
     height: 40%;
     /*background: #3d3956;*/
@@ -120,13 +126,21 @@ select:focus {
   .logo_svg {
     width: 50px;
     height: 50px;
+    position: relative;
+    top: 0.1rem;
+  }
+  .search {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
   }
   .search_box {
     font-size: 1rem;
+    width: 100px;
   }
 
   .watchlist {
     width: 120px;
+    position: relative;
   }
   .watchlist_btn {
     padding: 0.5rem;
@@ -136,5 +150,8 @@ select:focus {
   .watchlist_badge {
     width: 40px;
     height: 40px;
+  }
+  .logo_span {
+    color: #fff;
   }
 }

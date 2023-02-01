@@ -23,12 +23,12 @@ const Header = (props) => {
           onSetMovieSearch("");
         }}
       >
-        <section className={classes.logo}>
+        <div className={classes.logo}>
           <img className={classes.logo_svg} src={logo} alt="logo icon" />
           <h3>
             <span className={classes.logo_span}>find</span>Movie
           </h3>
-        </section>
+        </div>
       </button>
       <div className={classes.nav_control}>
         <form

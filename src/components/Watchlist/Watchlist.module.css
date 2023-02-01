@@ -67,6 +67,9 @@
     width: 100%;
     position: relative;
     bottom: 5rem;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
   }
   .showcase {
     width: 100%;

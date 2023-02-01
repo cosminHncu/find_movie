@@ -19,9 +19,8 @@ const MainPage = () => {
           find and read about your favorite films
         </p>
       </section>
-      <div className={classes.friends_holder}>
-        <img className={classes.friends} src={friends} />
-      </div>
+
+      <img className={classes.friends} src={friends} />
     </main>
   );
 

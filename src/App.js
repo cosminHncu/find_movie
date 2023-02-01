@@ -48,7 +48,7 @@ const App = () => {
 
   return (
     <div className={classes.app}>
-      <section>
+      <header>
         <Header
           movieSearch={movieSearch}
           watchlist={watchlist}
@@ -57,7 +57,7 @@ const App = () => {
           onHandleLogo={handleLogo}
         />
         <Wave />
-      </section>
+      </header>
       <main>
         {!displayWatchlist &&
           (movies.length <= 0 ? (
