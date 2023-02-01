@@ -51,9 +51,9 @@ const MovieOverview = (props) => {
     <div className={classes.movie_overview}>
       <h1 className={classes.title}>{Title}</h1>
 
-      <h4 className={classes.director}>
+      <h4 className={classes.movie_info}>
         <span className={classes.runtime}>{movieTitleSearch.Runtime}</span>
-        {movieTitleSearch.Director}
+        <span className={classes.director}> {movieTitleSearch.Director}</span>
       </h4>
 
       <p className={classes.plot}>{movieTitleSearch.Plot}</p>

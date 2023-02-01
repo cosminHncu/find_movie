@@ -136,6 +136,7 @@ select:focus {
   .search_box {
     font-size: 1rem;
     width: 100px;
+    font-size: 0.9rem;
   }
 
   .watchlist {
@@ -150,6 +151,8 @@ select:focus {
   .watchlist_badge {
     width: 40px;
     height: 40px;
+
+    background-color: rgba(0, 0, 0, 0.2);
   }
   .logo_span {
     color: #fff;

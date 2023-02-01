@@ -8,11 +8,7 @@ const MainPage = () => {
         <h1 className={classes.heading_txt}>
           Go watch <br />a Movie!
         </h1>
-        {/*<Typical
-          steps={["get", 1000, `fucked`, 2000]}
-          loop={Infinity}
-          wrapper="p"
-        />*/}
+        <img className={classes.friends_mobile} src={friends} />
         <p className={classes.heading_sub_txt}>
           Find and explore your next favorite movie <br />
           Discover a comprehensive movie search website where you can easily
