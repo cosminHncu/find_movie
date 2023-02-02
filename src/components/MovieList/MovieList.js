@@ -1,6 +1,5 @@
 import MovieOverview from "./MovieOverview";
 import classes from "./MovieList.module.css";
-import React, { useEffect } from "react";
 
 const MovieList = (props) => {
   const { watchlist, onSetWatchlist, movieList, onSetMovies } = props;

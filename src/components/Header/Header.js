@@ -1,7 +1,6 @@
 import classes from "./Header.module.css";
 import logo from "../assets/logo.svg";
 import search from "../assets/search.svg";
-import Typical from "react-typical";
 const Header = (props) => {
   const { onSetMovieSearch, onSetDisplayWatchlist, watchlist, onHandleLogo } =
     props;
@@ -30,6 +29,7 @@ const Header = (props) => {
           </h3>
         </div>
       </button>
+
       <div className={classes.nav_control}>
         <form
           onSubmit={handleEnter}
@@ -43,6 +43,7 @@ const Header = (props) => {
             placeholder="Type to search"
           />
         </form>
+
         <div className={classes.watchlist}>
           <button
             onClick={() => onSetDisplayWatchlist(true)}

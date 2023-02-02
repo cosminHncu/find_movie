@@ -9,6 +9,7 @@ const WatchlistMovie = (props) => {
   const viewdBtn = (
     <button
       onClick={() => {
+        localStorage.setItem(`${movie.imdbID}`, [movie.Poster, movie.Title]);
         setViewedMovie(true);
         setTimeout(() => onHandleViewd(imdbID), 1200);
       }}
@@ -24,6 +25,7 @@ const WatchlistMovie = (props) => {
         <img className={classes.poster} src={Poster} />
         <h2>{Title}</h2>
       </div>
+
       {viewedMovie ? (
         <img className={classes.done} src={done} alt="viewd" />
       ) : (

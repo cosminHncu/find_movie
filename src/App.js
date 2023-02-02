@@ -1,4 +1,8 @@
 //"http://www.omdbapi.com/?s=star+wars&apikey=630ce116"
+/*
+toDO:
+-handle errors e.g (fetch data error)
+*/
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import classes from "./App.module.css";
@@ -46,6 +50,7 @@ const App = () => {
     setDisplayWatchlist(false);
   }, [movieSearch]);
 
+  useEffect(() => {}, [watchlist]);
   return (
     <div className={classes.app}>
       <header>
@@ -79,6 +84,15 @@ const App = () => {
           />
         )}
       </main>
+      <footer>
+        <p>
+          created by{" "}
+          <a target="_blank" href="https://github.com/cosminHncu">
+            cosminHncu
+          </a>
+        </p>
+      </footer>
+      ;
     </div>
   );
 };

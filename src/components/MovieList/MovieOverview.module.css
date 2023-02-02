@@ -5,7 +5,6 @@
   width: 100%;
   flex-direction: column;
   animation: slide-up 0.3s forwards;
-  z-index: -10;
 }
 .movie_card {
   cursor: pointer;
@@ -13,7 +12,7 @@
   transition: transform 0.2s;
 }
 .movie_card:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .loading {
   transform: rotate(360deg);
@@ -23,11 +22,9 @@
   width: 180px;
   height: 250px;
   border-radius: 15px;
-  box-shadow: 0px 5px 15px #333;
+  box-shadow: 0px 5px 10px #333;
 }
-.poster:hover {
-  box-shadow: none;
-}
+
 .overlay {
   display: flex;
   justify-content: space-between;
@@ -109,7 +106,7 @@
   width: 100%;
   display: flex;
   margin-top: 0.4rem;
-  gap: 2rem;
+  gap: 5rem;
   justify-content: center;
   align-items: center;
 }
@@ -120,7 +117,7 @@
   width: 90px;
 }
 .director {
-  width: 90px;
+  width: 25%;
 }
 
 .plot {

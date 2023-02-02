@@ -29,6 +29,7 @@ const Watchlist = (props) => {
   return (
     <div className={classes.wrapper}>
       <h1 className={classes.header}>Watchlist</h1>
+
       {watchlist.length > 0 && (
         <section className={classes.showcase}>{list}</section>
       )}
