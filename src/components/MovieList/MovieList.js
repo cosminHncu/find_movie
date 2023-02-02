@@ -25,7 +25,7 @@ const MovieList = (props) => {
             key={imdbID}
             watchlist={watchlist}
             movie={movie}
-            movieList={filterdList}
+            //movieList={filterdList}
             onSetMovies={onSetMovies}
             onSetWatchlist={onSetWatchlist}
           />
@@ -36,7 +36,7 @@ const MovieList = (props) => {
 
   return (
     <main className={classes.wrapper}>
-      {filterdList.length > 0 ? resultMovies : noMovies}
+      {movieList.length > 0 ? resultMovies : noMovies}
     </main>
   );
 };

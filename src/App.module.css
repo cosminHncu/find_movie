@@ -43,7 +43,7 @@
   left: -20vmin;
   top: -20vmin;
   animation: morph 15s linear infinite alternate, spin 20s linear infinite;
-  z-index: 1;
+  z-index: 0;
   will-change: border-radius, transform;
   transform-origin: 55% 55%;
   pointer-events: none;
@@ -178,4 +178,9 @@ footer a:hover {
   opacity: 0.3;
   fill: #ffffff;
   enable-background: new;
+}
+@media (max-width: 767px) {
+  .app {
+    background-size: 100% 100%;
+  }
 }

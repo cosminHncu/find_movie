@@ -44,13 +44,22 @@ const App = () => {
     setWatchlist(list);
   };
 
+  const watchlistKeys = watchlist.map((movie) => movie.imdbID);
+
+  const test = (movies, watchlistKeys) =>
+    movies.filter((movie) => !watchlistKeys.includes(movie.imdbID));
+
   useEffect(() => {
     if (movieSearch === "") setMovies([]);
-    searchMovie(movieSearch);
+    watchlist.length !== 0 || searchMovie(movieSearch);
     setDisplayWatchlist(false);
   }, [movieSearch]);
+  //this works but...
 
-  useEffect(() => {}, [watchlist]);
+  //useEffect(() => {
+  //  let list = test(movies, watchlistKeys);
+  //  setMovies(list);
+  //}, [watchlist]);
   return (
     <div className={classes.app}>
       <header>
@@ -98,13 +107,3 @@ const App = () => {
 };
 
 export default App;
-
-{
-  /*<MovieList
-              watchlist={watchlist}
-              displayWatchlist={displayWatchlist}
-              movieList={movies}
-              onSetMovies={setMovies}
-              onSetWatchlist={handleAddWathlist}
-            />*/
-}
