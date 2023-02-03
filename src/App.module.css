@@ -60,6 +60,14 @@
     spin 26s linear infinite reverse;
   transform-origin: 20% 20%;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+}
 footer {
   padding: 1rem;
   z-index: 100;

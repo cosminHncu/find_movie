@@ -1,15 +1,21 @@
 import MovieOverview from "./MovieOverview";
 import classes from "./MovieList.module.css";
+import React, { useEffect } from "react";
 
 const MovieList = (props) => {
-  const { watchlist, onSetWatchlist, movieList, onSetMovies } = props;
-  let filterdList = movieList.filter(
+  const { watchlist, watchlistKeys, onSetWatchlist, movies, onSetMovies } =
+    props;
+  let filterdList = movies.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
   );
 
   const noMovies = (
     <div className={classes.movies_empty}>
-      <p>No Movies Found</p>
+      {watchlist.length === 0 ? (
+        <p>No Movies Found</p>
+      ) : (
+        <p>You Can Find The Results In Watchlist</p>
+      )}
     </div>
   );
 
@@ -25,7 +31,7 @@ const MovieList = (props) => {
             key={imdbID}
             watchlist={watchlist}
             movie={movie}
-            //movieList={filterdList}
+            movies={filterdList}
             onSetMovies={onSetMovies}
             onSetWatchlist={onSetWatchlist}
           />
@@ -36,7 +42,7 @@ const MovieList = (props) => {
 
   return (
     <main className={classes.wrapper}>
-      {movieList.length > 0 ? resultMovies : noMovies}
+      {filterdList.length > 0 ? resultMovies : noMovies}
     </main>
   );
 };

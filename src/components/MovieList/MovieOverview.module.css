@@ -16,8 +16,10 @@
   transform: scale(1.1);
 }
 .loading {
-  transform: rotate(360deg);
-  animation: rotating 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .poster {
   width: 180px;
@@ -57,7 +59,7 @@
   background: transparent;
 }
 .overview_btn:hover {
-  color: #438795;
+  color: #bcb8b8;
   transition: 0.2s ease;
 }
 .watchlist_btn {
@@ -73,7 +75,7 @@
   display: none;
 }
 .watchlist_btn:hover {
-  color: #438795;
+  color: #bcb8b8;
   transition: 0.2s ease;
 }
 .watchlist_btn:disabled {
@@ -103,6 +105,7 @@
 }
 
 .movie_info {
+  padding: 0 0.4rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -180,9 +183,6 @@
   }
 }
 
-.rotating {
-  animation: rotating 2s linear infinite;
-}
 @media (max-width: 767px) {
   .movie_info {
     justify-content: space-evenly;

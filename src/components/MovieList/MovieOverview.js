@@ -1,20 +1,22 @@
 import classes from "./MovieOverview.module.css";
 import React, { useState } from "react";
-import loading from "../assets/loading.svg";
+import { Circles } from "react-loader-spinner";
 
 const MovieOverview = (props) => {
-  const { onSetWatchlist } = props;
-  const { movie, watchlist } = props;
+  const { onSetWatchlist, movie } = props;
   const { Title, Poster } = props.movie;
-
   const [displayMovieData, setDisplayMovieData] = useState(false);
   const [movieTitleSearch, setMovieTitleSearch] = useState(null);
 
   const searchTitle = async (Title) => {
-    const url = `https://www.omdbapi.com/?t=${Title}&apikey=630ce116`;
-    const request = await fetch(url);
-    const response = await request.json();
-    setMovieTitleSearch(response);
+    try {
+      const url = `https://www.omdbapi.com/?t=${Title}&apikey=630ce116`;
+      const request = await fetch(url);
+      const response = await request.json();
+      setMovieTitleSearch(response);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   const movieCard = (
@@ -34,9 +36,8 @@ const MovieOverview = (props) => {
         {
           <button
             className={classes.watchlist_btn}
-            onClick={(event) => {
+            onClick={() => {
               movie.Type = ``;
-              //event.currentTarget.disabled = true;
               onSetWatchlist(props.movie);
             }}
           >
@@ -66,8 +67,16 @@ const MovieOverview = (props) => {
       </button>
     </div>
   ) : (
-    <div>
-      <img className={classes.rotating} src={loading} alt="loading " />
+    <div className={classes.loading}>
+      <Circles
+        height="80"
+        width="80"
+        color="#fff"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
     </div>
   );
 
@@ -75,6 +84,3 @@ const MovieOverview = (props) => {
 };
 
 export default MovieOverview;
-
-//maybe
-/*<img className={classes.poster} src={Poster} />*/

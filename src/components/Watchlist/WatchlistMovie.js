@@ -11,11 +11,11 @@ const WatchlistMovie = (props) => {
       onClick={() => {
         localStorage.setItem(`${movie.imdbID}`, [movie.Poster, movie.Title]);
         setViewedMovie(true);
-        setTimeout(() => onHandleViewd(imdbID), 1200);
+        setTimeout(() => onHandleViewd(imdbID), 500);
       }}
       className={classes.watchlist_btn}
     >
-      Watched
+      Remove
     </button>
   );
 

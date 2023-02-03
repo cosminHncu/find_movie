@@ -63,4 +63,8 @@
   .wrapper {
     min-height: 100vh;
   }
+  .movies_empty {
+    text-align: center;
+    font-size: 1.2rem;
+  }
 }

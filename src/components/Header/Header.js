@@ -2,8 +2,13 @@ import classes from "./Header.module.css";
 import logo from "../assets/logo.svg";
 import search from "../assets/search.svg";
 const Header = (props) => {
-  const { onSetMovieSearch, onSetDisplayWatchlist, watchlist, onHandleLogo } =
-    props;
+  const {
+    onSetMovieSearch,
+    onSetDisplayWatchlist,
+    watchlist,
+    onHandleLogo,
+    movieSearch,
+  } = props;
 
   const handleChange = (e) => {
     onSetMovieSearch(e.target.value);
@@ -19,7 +24,6 @@ const Header = (props) => {
         className={classes.logo_btn}
         onClick={() => {
           onHandleLogo();
-          onSetMovieSearch("");
         }}
       >
         <div className={classes.logo}>
@@ -31,15 +35,12 @@ const Header = (props) => {
       </button>
 
       <div className={classes.nav_control}>
-        <form
-          onSubmit={handleEnter}
-          onChange={handleChange}
-          className={classes.search}
-        >
+        <form onSubmit={handleEnter} className={classes.search}>
           <img className={classes.search_svg} src={search} alt="search icon" />
           <input
+            onChange={handleChange}
+            value={movieSearch}
             className={classes.search_box}
-            value={props.searchSearch}
             placeholder="Type to search"
           />
         </form>
