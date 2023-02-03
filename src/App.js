@@ -93,7 +93,6 @@ const App = () => {
             <MainPage />
           ) : (
             <MovieList
-              watchlistKeys={watchlistKeys}
               watchlist={watchlist}
               displayWatchlist={displayWatchlist}
               movies={movies}

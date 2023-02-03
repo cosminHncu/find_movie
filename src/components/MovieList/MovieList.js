@@ -1,10 +1,8 @@
 import MovieOverview from "./MovieOverview";
 import classes from "./MovieList.module.css";
-import React, { useEffect } from "react";
 
 const MovieList = (props) => {
-  const { watchlist, watchlistKeys, onSetWatchlist, movies, onSetMovies } =
-    props;
+  const { watchlist, onSetWatchlist, movies, onSetMovies } = props;
   let filterdList = movies.filter(
     (movie) => movie.Type === `movie` && movie.Poster !== `N/A`
   );
@@ -23,9 +21,7 @@ const MovieList = (props) => {
     <div className={classes.showcase}>
       {filterdList.map((movie) => {
         const { imdbID } = movie;
-        {
-          /*movie.test = false;*/
-        }
+
         return (
           <MovieOverview
             key={imdbID}
