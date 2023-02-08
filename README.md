@@ -6,7 +6,7 @@ More functionalities to implement.
 Stack:
 - React;
 
-Link: https://cosminhncu.github.io/javascript_quiz/
+Link: https://cosminhncu.github.io/find_movie/
 
 Resources:
 - OMDb API for movies data (http://www.omdbapi.com/)
